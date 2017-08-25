@@ -49,7 +49,7 @@ export default class ChildProcessUtilities {
     const spawned = _spawn(command, args, options, callback);
 
     const prefixedStdout = logTransformer({ tag: `${color.bold(prefix)}:` });
-    const prefixedStderr = logTransformer({ tag: `${color(prefix)}:`, mergeMultiline: true });
+    const prefixedStderr = logTransformer({ tag: `${color(prefix)}:`, mergeMultiline: false });
 
     // Avoid "Possible EventEmitter memory leak detected" warning due to piped stdio
     if (children > process.stdout.listenerCount("close")) {
